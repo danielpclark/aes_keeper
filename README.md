@@ -24,7 +24,7 @@ Or install it yourself as:
 
 With encryption and iv result separate:
 ```ruby
-cipher = AesKeeper.new(key: 'some really good 32 character long key for encryption! ^_^')
+cipher = AesKeeper.new(key: 'some really good 32+ character long key for encryption! ^_^')
 result = cipher.encrypt("apples")
 # => {:encrypted=>"K1E/a75/3zxNKCTXJFJZaVe8jjeHFQG+Cv1Lxntz3oM=\n", :iv=>"uQozeVXYhaeK7Rvh1na6kA==\n"}
 cipher.decrypt(result)
@@ -33,7 +33,7 @@ cipher.decrypt(result)
 
 With encryption and iv result combined:
 ```ruby
-cipher = AesKeeper.new(key: 'some really good 32 character long key for encryption! ^_^')
+cipher = AesKeeper.new(key: 'some really good 32+ character long key for encryption! ^_^')
 result = cipher.encrypt("apples").to_s
 # => "xPbb+kVIROlA5YHvSaKsYcCobgBz/TQHpJ5wP9lAuBQ=\n:WIaGiOhjFBRBVJReiA2aTA==\n"
 cipher.decrypt(result)
@@ -43,7 +43,7 @@ cipher.decrypt(result)
 You can specify a Salt as well:
 ```ruby
 AesKeeper.new(
-  key: 'some really good 32 character long key for encryption! ^_^',
+  key: 'some really good 32+ character long key for encryption! ^_^',
   salt: 'asdfqwerty'
 )
 ```
@@ -53,7 +53,7 @@ AesKeeper.new(
 This code can be refactored and tested.  Otherwise I consider this project feature complete.  It's designed
 with assumptions for its implementation and it's met those requirements.
 
-1. Fork it ( https://github.com/[my-github-username]/aes_keeper/fork )
+1. Fork it ( https://github.com/danielpclark/aes_keeper/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
