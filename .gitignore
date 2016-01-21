@@ -13,4 +13,5 @@
 *.o
 *.a
 *.gem
+*.swp
 mkmf.log
