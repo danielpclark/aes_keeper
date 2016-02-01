@@ -1,10 +1,14 @@
 require 'minitest_helper'
 
-describe AesKeeper do
+describe AESKeeper::AesKeeperMarshal do
   let(:uuid)    { SecureRandom.uuid }
   let(:encrypt1){AesKeeper.new key: "asdfghjklqwertyuiopzxcvbnm1234567890"}
   let(:encrypt2){AesKeeper.new key: "asdfghjklqwertyuiopzxcvbnm1234567890", salt: "shaker"}
   let(:encrypt3){AesKeeper.new key: uuid, salt: "Example.com"}
+
+  it "shows version for old implementation" do
+    _(AesKeeper::VERSION.class).must_be_same_as String
+  end
 
   it "produces a hash of size 2" do
     hsh = encrypt1.encrypt("moo")

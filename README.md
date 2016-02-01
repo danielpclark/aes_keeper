@@ -4,6 +4,10 @@ A database safe encryption using AES 256 CBC.  Key required, Salt optional.  Ret
 or you can call **.to_s** to receive the encrypted data as one String. Decrypt will accept either form of the
  { encrypted: '', iv: '' } pair or the String result.
 
+**NOTE:**
+ * Class object AesKeeper uses marshal which may be incompatible across platforms and Ruby versions. A benefit from this is the ability to place entire Ruby Objects in encrypted format.
+ * Please use AESKeeper::AesKeeperPure for any compatibility reasons.  It needs String input.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -61,7 +65,7 @@ with assumptions for its implementation and it's met those requirements.
 
 ## License
 
-Copyright (c) 2015 Daniel P. Clark
+Copyright (c) 2015-2016 Daniel P. Clark
 
 MIT License
 

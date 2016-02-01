@@ -1,3 +1,3 @@
-class AesKeeper
-  VERSION = "0.0.1"
+module AESKeeper
+  VERSION = "0.0.2"
 end

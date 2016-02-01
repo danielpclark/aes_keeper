@@ -5,7 +5,7 @@ require 'aes_keeper/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "aes_keeper"
-  spec.version       = AesKeeper::VERSION
+  spec.version       = AESKeeper::VERSION
   spec.authors       = ["Daniel P. Clark"]
   spec.email         = ["6ftdan@gmail.com"]
   spec.summary       = %q{Encrypt data via AES to database worthy strings.}
