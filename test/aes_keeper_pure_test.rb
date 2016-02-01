@@ -1,10 +1,10 @@
 require 'minitest_helper'
 
-describe AESKeeper::AesKeeperPure do
+describe AESKeeper::AESKeeperPure do
   let(:uuid)    { SecureRandom.uuid }
-  let(:encrypt1){AESKeeper::AesKeeperPure.new key: "asdfghjklqwertyuiopzxcvbnm1234567890"}
-  let(:encrypt2){AESKeeper::AesKeeperPure.new key: "asdfghjklqwertyuiopzxcvbnm1234567890", salt: "shaker"}
-  let(:encrypt3){AESKeeper::AesKeeperPure.new key: uuid, salt: "Example.com"}
+  let(:encrypt1){AESKeeper::AESKeeperPure.new key: "asdfghjklqwertyuiopzxcvbnm1234567890"}
+  let(:encrypt2){AESKeeper::AESKeeperPure.new key: "asdfghjklqwertyuiopzxcvbnm1234567890", salt: "shaker"}
+  let(:encrypt3){AESKeeper::AESKeeperPure.new key: uuid, salt: "Example.com"}
 
   it "produces a hash of size 2" do
     hsh = encrypt1.encrypt("moo")
@@ -15,10 +15,9 @@ describe AESKeeper::AesKeeperPure do
   end
 
   it "pure aes results with injected iv will be consistent" do
-    encryptor = AESKeeper::AesKeeperPure.new key: "asdfghjklqwertyuiopzxcvbnm1234567890", salt: "shaker"
-    encryptor.instance_exec {@iv = "\xF6s\x93<\xCB\x8DX\x88\x84\xB9J\x04\x93l^\x8F"}
-    a = encryptor.encrypt("asdf@moo.com").to_s
-    b = encryptor.encrypt("asdf@moo.com").to_s
+    encrypt2.instance_exec {@iv = "\xF6s\x93<\xCB\x8DX\x88\x84\xB9J\x04\x93l^\x8F"}
+    a = encrypt2.encrypt("asdf@moo.com").to_s
+    b = encrypt2.encrypt("asdf@moo.com").to_s
     _(a).must_equal b 
   end
 

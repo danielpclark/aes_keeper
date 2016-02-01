@@ -1,5 +1,5 @@
 module AESKeeper
-  class AesKeeperPure
+  class AESKeeperPure
     def initialize(options = {})
       raise ":key required!" unless options.has_key? :key
       raise ":key needs to be at-least 32 characters!" unless options[:key].length >= 32

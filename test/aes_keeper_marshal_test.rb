@@ -1,6 +1,6 @@
 require 'minitest_helper'
 
-describe AESKeeper::AesKeeperMarshal do
+describe AESKeeper::AESKeeperMarshal do
   let(:uuid)    { SecureRandom.uuid }
   let(:encrypt1){AesKeeper.new key: "asdfghjklqwertyuiopzxcvbnm1234567890"}
   let(:encrypt2){AesKeeper.new key: "asdfghjklqwertyuiopzxcvbnm1234567890", salt: "shaker"}

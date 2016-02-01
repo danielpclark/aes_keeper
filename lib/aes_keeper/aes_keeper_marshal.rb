@@ -1,5 +1,5 @@
 module AESKeeper
-  class AesKeeperMarshal
+  class AESKeeperMarshal
     VERSION = VERSION
     def initialize(options = {})
       raise ":key required!" unless options.has_key? :key
