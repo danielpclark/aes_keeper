@@ -6,6 +6,24 @@ describe AESKeeper::AESKeeperPure do
   let(:encrypt2){AESKeeper::AESKeeperPure.new key: "asdfghjklqwertyuiopzxcvbnm1234567890", salt: "shaker"}
   let(:encrypt3){AESKeeper::AESKeeperPure.new key: uuid, salt: "Example.com"}
 
+  it "can be reproducible and optional PBKDF2" do
+    enc = AESKeeper::AESKeeperPure.new key: "asdfghjklqwertyuiopzxcvbnm1234567890", salt: "shaker", armor: false
+    enc.instance_exec {@iv="F5DC1E5A25F87C2201FE9B8D682D22CE"}
+    a = enc.encrypt("asdf@moo.com").to_s
+
+    enc = AESKeeper::AESKeeperPure.new key: "asdfghjklqwertyuiopzxcvbnm1234567890", salt: "shaker"
+    enc.instance_exec {@iv="F5DC1E5A25F87C2201FE9B8D682D22CE"}
+    b = enc.encrypt("asdf@moo.com").to_s
+
+    enc = AESKeeper::AESKeeperPure.new key: "asdfghjklqwertyuiopzxcvbnm1234567890", salt: "shaker", armor: false
+    enc.instance_exec {@iv="F5DC1E5A25F87C2201FE9B8D682D22CE"}
+    c = enc.encrypt("asdf@moo.com").to_s
+
+    _(a).must_equal c
+    _(a).wont_equal b
+    _(b).wont_equal c
+  end
+
   it "produces a hash of size 2" do
     hsh = encrypt1.encrypt("moo")
     _(hsh).must_be_kind_of Hash
@@ -53,3 +71,10 @@ describe AESKeeper::AESKeeperPure do
   end
 end
 
+
+# ~> LoadError
+# ~> cannot load such file -- minitest_helper
+# ~>
+# ~> /home/danielpclark/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+# ~> /home/danielpclark/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+# ~> /tmp/seeing_is_believing_temp_dir20160202-24131-1bft3zn/program.rb:1:in `<main>'
