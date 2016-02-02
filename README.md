@@ -26,6 +26,12 @@ Or install it yourself as:
 
 ## Usage
 
+#####AESKeeper::AESKeeperPure
+ - Pure String implementation. Backwards compatible and crossplatform compatible.
+
+#####AESKeeper::AESKeeperMarshal && AesKeeper
+- Marshalling Object implementation
+
 With encryption and iv result separate:
 ```ruby
 cipher = AesKeeper.new(key: 'some really good 32+ character long key for encryption! ^_^')
