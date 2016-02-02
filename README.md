@@ -24,13 +24,25 @@ Or install it yourself as:
 
     $ gem install aes_keeper
 
-## Usage
+##Implementation
+
+#####AESKeeper::AESKeeperMarshal && AesKeeper
+ - Marshalling Object implementation
 
 #####AESKeeper::AESKeeperPure
  - Pure String implementation. Backwards compatible and crossplatform compatible.
 
-#####AESKeeper::AESKeeperMarshal && AesKeeper
- - Marshalling Object implementation
+If you are using the the AesKeeper from previous versions and would like to switch
+without changing throughout all of your code you can add an initializer in your software
+to change the AesKeeper from point at AESKeeper::AESKeeperMarshal to AESKeeper::AESKeeperPure
+
+```ruby
+require 'aes_keeper'
+Object.send(:remove_const, 'AesKeeper')
+AesKeeper = AESKeeper::AESKeeperPure
+```
+
+## Usage
 
 With encryption and iv result separate:
 ```ruby
@@ -57,6 +69,8 @@ AesKeeper.new(
   salt: 'asdfqwerty'
 )
 ```
+
+More advanced usages are visible in the test suite.
 
 ## Contributing
 
