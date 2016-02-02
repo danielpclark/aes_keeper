@@ -30,7 +30,7 @@ Or install it yourself as:
  - Pure String implementation. Backwards compatible and crossplatform compatible.
 
 #####AESKeeper::AESKeeperMarshal && AesKeeper
-- Marshalling Object implementation
+ - Marshalling Object implementation
 
 With encryption and iv result separate:
 ```ruby
