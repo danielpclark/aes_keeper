@@ -24,12 +24,12 @@ Or install it yourself as:
 
     $ gem install aes_keeper
 
-##Implementation
+## Implementation
 
-#####AESKeeper::AESKeeperMarshal && AesKeeper
+##### AESKeeper::AESKeeperMarshal && AesKeeper
  - Marshalling Object implementation
 
-#####AESKeeper::AESKeeperPure
+##### AESKeeper::AESKeeperPure
  - Pure String implementation. Backwards compatible and crossplatform compatible.
 
 If you are using the the AesKeeper from previous versions and would like to switch
